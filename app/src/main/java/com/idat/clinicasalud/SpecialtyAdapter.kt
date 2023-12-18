@@ -8,19 +8,25 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.idat.clinicasalud.dtos.Cita
 
-class SpecialtyAdapter(private val context: Context, private val dataSource: MutableList<String>) : RecyclerView.Adapter<SpecialtyAdapter.ViewHolder>() {
+class SpecialtyAdapter(private val context: Context, private val dataSource: MutableList<Cita>) : RecyclerView.Adapter<SpecialtyAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nameTextView: TextView = view.findViewById(R.id.specialtyNameTextView)
-        val editButton: ImageButton = view.findViewById(R.id.editButton)
+        val fechaTextView: TextView = view.findViewById(R.id.dateTextView)
+        val estadoTextView: TextView = view.findViewById(R.id.statusTextView)
         val deleteButton: ImageButton = view.findViewById(R.id.deleteButton)
 
-        fun bind(specialty: String, position: Int, adapter: SpecialtyAdapter) {
-            nameTextView.text = specialty
-            editButton.setOnClickListener {
-                // Lógica para editar
+        fun bind(cita: Cita, position: Int, adapter: SpecialtyAdapter) {
+            nameTextView.text = cita.medicoNombre
+            fechaTextView.text = cita.horaCita
+            estadoTextView.text = cita.estadoCita
+
+            if(cita.estadoCita == "Atendida"){
+                deleteButton.visibility = View.INVISIBLE
             }
+
             deleteButton.setOnClickListener {
                 adapter.showDeleteConfirmationDialog(position)
             }

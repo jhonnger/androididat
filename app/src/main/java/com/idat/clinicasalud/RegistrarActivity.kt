@@ -56,6 +56,7 @@ class RegistrarActivity : ComponentActivity(){
                             "apellido" to apellido_edittext.text.toString()
                         )
 
+
                         db.collection("users")
                             .document(user?.uid.toString())
                             .set(nuevoUsuario)
