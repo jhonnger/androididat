@@ -16,6 +16,7 @@ class LoginActivity : ComponentActivity() {
     private lateinit var usernameEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
+    private lateinit var mapaButton: Button
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
     private lateinit var auth: FirebaseAuth
@@ -30,6 +31,7 @@ class LoginActivity : ComponentActivity() {
         passwordEditText = findViewById(R.id.passwordEditText)
         val goToRegister = findViewById<TextView>(R.id.registroBtn)
         loginButton = findViewById(R.id.loginButton)
+        mapaButton = findViewById(R.id.btnMapa)
         auth = FirebaseAuth.getInstance()
 
 
@@ -57,6 +59,13 @@ class LoginActivity : ComponentActivity() {
                             Toast.LENGTH_SHORT).show()
                     }
                 }
+
+        }
+
+
+        mapaButton.setOnClickListener {
+            val intent = Intent(this, MapaActivity::class.java)
+            startActivity(intent)
 
         }
 
