@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Clinica Salud</string>
+    <string name="search_hint">Buscar especialidad</string>
+    <string name="edit">Editar</string>
+    <string name="delete">Eliminar</string>
+    <string name="confirmation">Confirmación</string>
+    <string name="delete_confirmation">¿Estás seguro de que quieres eliminar esta especialidad?</string>
+    <string name="cancel">Cancelar</string>
+</resources>
