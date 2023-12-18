@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.idat.clinicasalud.dtos.Cita
+import com.idat.clinicasalud.dtos.CitaDto
 
-class SpecialtyAdapter(private val context: Context, private val dataSource: MutableList<Cita>) : RecyclerView.Adapter<SpecialtyAdapter.ViewHolder>() {
+class SpecialtyAdapter(private val context: Context, private val dataSource: MutableList<CitaDto>) : RecyclerView.Adapter<SpecialtyAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nameTextView: TextView = view.findViewById(R.id.specialtyNameTextView)
@@ -18,12 +18,12 @@ class SpecialtyAdapter(private val context: Context, private val dataSource: Mut
         val estadoTextView: TextView = view.findViewById(R.id.statusTextView)
         val deleteButton: ImageButton = view.findViewById(R.id.deleteButton)
 
-        fun bind(cita: Cita, position: Int, adapter: SpecialtyAdapter) {
-            nameTextView.text = cita.medicoNombre
-            fechaTextView.text = cita.horaCita
-            estadoTextView.text = cita.estadoCita
+        fun bind(citaDto: CitaDto, position: Int, adapter: SpecialtyAdapter) {
+            nameTextView.text = citaDto.medicoNombre
+            fechaTextView.text = citaDto.horaCita
+            estadoTextView.text = citaDto.estadoCita
 
-            if(cita.estadoCita == "Atendida"){
+            if(citaDto.estadoCita == "Atendida"){
                 deleteButton.visibility = View.INVISIBLE
             }
 
