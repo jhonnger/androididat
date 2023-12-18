@@ -6,12 +6,16 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/searchEditText"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/search_hint"
-        android:inputType="text"/>
+        android:text="Mis Citas"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/specialtyRecyclerView"

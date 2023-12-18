@@ -1,8 +1,6 @@
 package com.idat.clinicasalud
-import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -10,12 +8,8 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 
 class LoginActivity : ComponentActivity() {
 
@@ -49,11 +43,13 @@ class LoginActivity : ComponentActivity() {
             val username = usernameEditText.text.toString()
             val password = passwordEditText.text.toString()
 
+            ProgressDialogUtil.showProgressDialog(this)
             auth.signInWithEmailAndPassword(username, password)
                 .addOnCompleteListener(this) { task ->
+                    ProgressDialogUtil.hideProgressDialog()
                     if (task.isSuccessful) {
                         val user = auth.currentUser
-                        val intent = Intent(this, EspecialidadListActivity::class.java)
+                        val intent = Intent(this, CitasListActivity::class.java)
                         startActivity(intent)
                     } else {
                         // Si el ingreso falla, muestro un mensaje al usuario.
